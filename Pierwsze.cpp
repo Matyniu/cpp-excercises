@@ -1,6 +1,6 @@
 #include <iostream>
 #include <math.h>
-
+#include <list>
 
 using namespace std;
 
@@ -38,25 +38,36 @@ int main()
     for (int i = 0; i<N; i++)
     {
         for (int j =a[i]; j < b[i]; j++)
+        {
             for (int k=2; k*k<=j; k++)
             {
-                if (j == 2) {
-                    ilosc.push_front(j);
-                }
-                if (j % k == 0) {
+                if (j % k == 0)
+                {
                     break;
                 }
                 else if (k+1 > sqrt(j))
                 {
                     ilosc.push_front(j);
                 }
+
             }
-        cout << a[i] << " " << b[i] << "\n";
-        cout << ilosc.size() << endl;
+        }
+        if (a[i] == 2)
+        {
+            ilosc.push_back(3);
+            ilosc.push_back(2);
+        }
+        else if (a[i] == 3) {
+            ilosc.push_back(3);
+        }
+        for (auto e:ilosc)
+        {
+            cout << e << " ";
+        }
         ilosc.resize(0);
     }
     delete [] a;
     delete [] b ;
 
-        return 0;
+    return 0;
 }
