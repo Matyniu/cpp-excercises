@@ -1,6 +1,6 @@
 #include <iostream>
 #include <math.h>
-#include <list>
+
 
 using namespace std;
 
